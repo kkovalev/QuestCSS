@@ -1,15 +1,12 @@
 body{
     font-family: Arial;
 }
-body:before{
-    content: none;
-}
 main{
-    display: block;
     position: relative;
     width: 1280px;
     height: 600px;
     user-select: none;
+    overflow: hidden;
 }
 input{
     display: none;
@@ -20,7 +17,7 @@ fieldset{
     margin: 0;
 }
 main label{
-    cursor: pointer;
+    cursor: pointer !important;
 }
 main .scene{
     position: absolute;
@@ -42,13 +39,13 @@ main .scene1{
     background: url(img/saray.jpg) no-repeat bottom;
     background-size: 100%;
 }
-main .scene1 [for="scene2"]{
+[for="scene2"]{
     position: absolute;
     transform: translate(668px, 180px);
     width: 200px;
     height: 240px;
 }
-main .scene1 [for="scene2"]:before{
+[for="scene2"]:before{
     content: attr(data-tooltip);
     position: absolute;
     top: 50%;
@@ -60,11 +57,11 @@ main .scene1 [for="scene2"]:before{
     opacity: 0;
     transition: transform .5s ease-out, opacity .5s linear;
 }
-main .scene1 [for="scene2"]:hover:before{
+[for="scene2"]:hover:before{
     transform: translate(calc(-100% - 30px), -50%);
     opacity: .9;
 }
-main .scene1 [for="scene2"]:after{
+[for="scene2"]:after{
     content: '';
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z'/%3E%3C/svg%3E%0A") repeat-x;
     position: absolute;
@@ -78,7 +75,7 @@ main .scene1 [for="scene2"]:after{
     transition: transform .3s ease-out, opacity .3s ease-out;
     will-change: transform, opacity;
 }
-main .scene1 [for="scene2"]:hover:after{
+[for="scene2"]:hover:after{
     animation: arrow 1s linear infinite;
     transform: translate(-100%, -50%);
     opacity: .9;
@@ -235,10 +232,10 @@ main .scene1 [for="scene2"]:hover:after{
 [for="lopataControl"]{
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     color: #655e5b;
     z-index: -1;
-    transform: translate(1000px, 330px) rotate(-25deg) scaleX(-1);
+    transform: translate(-138px, 330px) rotate(-25deg) scaleX(-1);
     transition: transform 1s ease-out;
     will-change: transform;
     background: url(img/lopata.png);
@@ -247,8 +244,7 @@ main .scene1 [for="scene2"]:hover:after{
     height: 140px;
 }
 #lopataControl:checked ~ .scene [for="lopataControl"]{
-    transform: translate(1107px, 230px) rotate(-5deg) scaleX(-2) scaleY(2);
-    position: fixed;
+    transform: translate(-40px, 450px) rotate(205deg) scale(1.5);
     z-index: 2;
 }
 
@@ -257,10 +253,47 @@ main .scene2{
     background: url(img/dvor.jpg) no-repeat bottom;
     background-size: 100%;
 }
-main .scene2 [for="scene1"]{
+[for="scene1"]{
     position: absolute;
     width: 100px;
     height: 100%;
+}
+[for="scene1"]:before{
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: transform .5s ease-out, opacity .5s linear;
+}
+[for="scene1"]:hover:before{
+    transform: translate(100%, -50%);
+    opacity: .9;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px #888;
+}
+[for="scene1"]:after{
+    content: '';
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z'/%3E%3C/svg%3E%0A") repeat-x;
+    position: absolute;
+    background-size: 100%;
+    top: 50%;
+    right: 0;
+    height: 28px;
+    width: 28px;
+    transform: translate(-50%, -50%)scaleX(-1);
+    opacity: 0;
+    transition: transform .3s ease-out, opacity .3s ease-out;
+    will-change: transform, opacity;
+}
+[for="scene1"]:hover:after{
+    animation: arrow 1s linear infinite;
+    transform: translate(70%, -50%)scaleX(-1);
+    opacity: .9;
 }
 /* Сугроб */
 .scene2 [for="snowControl"]{
@@ -399,4 +432,14 @@ main .scene2 [for="scene1"]{
 /* Финал */
 fieldset:valid + .final{
 
+}
+
+
+
+
+body:before{
+    content: none;
+}
+main{
+    display: block;
 }
