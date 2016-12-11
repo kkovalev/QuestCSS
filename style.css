@@ -229,9 +229,7 @@ main .scene1 [for="scene2"]:hover:after{
     will-change: transform;
 }
 #keyControl:checked ~ .scene .key{
-    transform: translate(1200px, 0) rotate(90deg) scale(3);
-    position: fixed;
-    z-index: 2;
+    transform: translate(1230px, 0px) rotate(90deg) scale(3);
 }
 /* Лопата */
 [for="lopataControl"]{
