@@ -333,6 +333,43 @@ main .scene2 [for="scene1"]{
 #handsControl:checked ~ .scene .branch{
     display: none;
 }
+[for="handsControl"]:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-radius: 4px;
+    transform: translate(-50%, -50%) scaleX(-1);
+    opacity: 0;
+    transition: transform .5s ease-out, opacity .5s linear;
+    background: url(img/topor.png);
+    background-size: 100%;
+    width: 50px;
+    height: 70px;
+}
+[for="handsControl"]:hover:before{
+    transform: translate(-100%, -50%) scaleX(-1) rotate(40deg);
+    opacity: .9;
+}
+[for="handsControl"]:after{
+    content: '';
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z'/%3E%3C/svg%3E%0A") repeat-x;
+    position: absolute;
+    background-size: 100%;
+    top: 50%;
+    left: 0;
+    height: 28px;
+    width: 28px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: transform .3s ease-out, opacity .3s ease-out;
+    will-change: transform, opacity;
+}
+[for="handsControl"]:hover:after{
+    animation: arrow 1s linear infinite;
+    transform: translate(-100%, -50%);
+    opacity: .9;
+}
 /* Руки снеговика */
 .hands{
     position: absolute;
