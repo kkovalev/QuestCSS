@@ -215,6 +215,13 @@ main .scene1{
 #kovrControl:checked ~ .scene .kovr{
     transform: translate(880px, 480px) skew(-40deg);
 }
+/* Ключ */
+.key{
+    background: url(img/key.png);
+    width: 50px;
+    height: 16px;
+    background-size: 100%;
+}
 .key{
     position: absolute;
     top: 0;
@@ -226,7 +233,9 @@ main .scene1{
     will-change: transform;
 }
 #keyControl:checked ~ .scene .key{
-    transform: translate(1230px, 0px) rotate(90deg) scale(3);
+    transform: translate(1200px, 30px) rotate(90deg);
+    width: 100px;
+    height: 32px;
 }
 /* Лопата */
 [for="lopataControl"]{
@@ -266,6 +275,8 @@ main .scene2{
     background: #fff;
     padding: 5px 10px;
     border-radius: 4px;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px #888;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: transform .5s ease-out, opacity .5s linear;
@@ -273,8 +284,6 @@ main .scene2{
 [for="scene1"]:hover:before{
     transform: translate(100%, -50%);
     opacity: .9;
-    white-space: nowrap;
-    box-shadow: 0 2px 4px #888;
 }
 [for="scene1"]:after{
     content: '';
