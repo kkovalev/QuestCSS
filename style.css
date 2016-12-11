@@ -191,3 +191,29 @@ main .scene2 [for="scene1"]{
     width: 100px;
     height: 100%;
 }
+.scene2 [for="snowControl"]{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(510px, 250px);
+    width: 188px;
+    height: 62px;
+    display: none;
+}
+#lopataControl:checked ~ .scene [for="snowControl"]{
+    display: block;
+}
+.snowball{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(900px, 250px) scale(8);
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 100%;
+    display: none;
+}
+#snowControl:checked ~ .scene .snowball{
+    display: block;
+}
