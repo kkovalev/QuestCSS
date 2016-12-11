@@ -155,8 +155,26 @@ main .scene1 [for="scene2"]{
     position: fixed;
     z-index: 2;
 }
-
-
+/* Лопата */
+[for="lopataControl"]{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #655e5b;
+    z-index: -1;
+    transform: translate(1000px, 330px) rotate(-25deg) scaleX(-1);
+    transition: transform 1s ease-out;
+    will-change: transform;
+    background: url(img/lopata.png);
+    background-size: 100%;
+    width: 150px;
+    height: 140px;
+}
+#lopataControl:checked ~ .scene [for="lopataControl"]{
+    transform: translate(1107px, 230px) rotate(-5deg) scaleX(-2) scaleY(2);
+    position: fixed;
+    z-index: 2;
+}
 
 
 
