@@ -191,6 +191,7 @@ main .scene2 [for="scene1"]{
     width: 100px;
     height: 100%;
 }
+/* Сугроб */
 .scene2 [for="snowControl"]{
     position: absolute;
     top: 0;
@@ -203,6 +204,7 @@ main .scene2 [for="scene1"]{
 #lopataControl:checked ~ .scene [for="snowControl"]{
     display: block;
 }
+/* Голова снеговика */
 .snowball{
     position: absolute;
     top: 0;
@@ -216,4 +218,77 @@ main .scene2 [for="scene1"]{
 }
 #snowControl:checked ~ .scene .snowball{
     display: block;
+}
+/* Топор */
+[for="toporControl"]{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: translate(100px, 390px) rotate(20deg);
+    transition: transform 1s ease-out;
+    will-change: transform;
+    background: url(img/topor.png);
+    background-size: 100%;
+    width: 100px;
+    height: 140px;
+}
+#toporControl:checked ~ .scene [for="toporControl"]{
+    transform: translate(30px, 270px) rotate(-60deg) scaleX(-2) scaleY(2);
+    position: fixed;
+    z-index: 2;
+}
+/* Ветка */
+.branch{
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(-10px, 120px);
+    width: 300px;
+    height: 130px;
+    background: url(img/branch.png);
+    background-size: 100%;
+}
+.branch [for="handsControl"]{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+#toporControl:checked ~ .scene [for="handsControl"]{
+    display: block;
+}
+#handsControl:checked ~ .scene .branch{
+    display: none;
+}
+/* Руки снеговика */
+.hands{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-180px, 286px);
+    width: 404px;
+    height: 76px;
+    display: none;
+    justify-content: space-between;
+}
+.hands:before,
+.hands:after{
+    content: '';
+    width: 150px;
+    height: 70px;
+    background: url(img/branch.png);
+    background-size: 100%;
+}
+.hands:after{
+    transform: scaleX(-1);
+}
+#handsControl:checked ~ .scene .hands{
+    display: flex;
+}
+/* Финал */
+fieldset:valid + .final{
+
 }

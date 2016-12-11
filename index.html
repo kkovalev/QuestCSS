@@ -24,55 +24,65 @@
 </head>
 <body>
     <main>
-        <input type="checkbox" id="keyControl">
-        <input type="checkbox" id="kovrControl">
-        <input type="checkbox" id="openControl">
-        <input type="checkbox" id="lopataControl">
-        <input type="checkbox" id="snowControl">
+        <fieldset>
+            <input type="checkbox" id="keyControl">
+            <input type="checkbox" id="kovrControl">
+            <input type="checkbox" id="openControl">
+            <input type="checkbox" id="lopataControl">
+            <input type="checkbox" id="snowControl">
+            <input type="checkbox" id="toporControl">
+            <input type="checkbox" id="handsControl">
 
-        <!-- Сарай -->
-        <input type="radio" name="scene" id="scene1" checked>
-        <div class="scene scene1">
-            <!-- Дверь во двор -->
-            <label for="scene2"></label>
-            <!-- Ящик -->
-            <div class="box">
-                <div class="front front1"></div>
-                <div class="front front2"></div>
-                <div class="top"></div>
-                <div class="left"></div>
-                <div class="lock">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path/></svg>
-                    <label for="openControl"></label>
+            <!-- Сарай -->
+            <input type="radio" name="scene" id="scene1" checked>
+            <div class="scene scene1">
+                <!-- Дверь во двор -->
+                <label for="scene2"></label>
+                <!-- Ящик -->
+                <div class="box">
+                    <div class="front front1"></div>
+                    <div class="front front2"></div>
+                    <div class="top"></div>
+                    <div class="left"></div>
+                    <div class="lock">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path/></svg>
+                        <label for="openControl"></label>
+                    </div>
+                </div>
+                <!-- Ковер -->
+                <label class="kovr" for="kovrControl"></label>
+                <!-- Ключ -->
+                <label for="keyControl" class="key">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                    </svg>
+                </label>
+                <!-- Лопата -->
+                <label for="lopataControl"></label>
+                <!-- Топор -->
+                <label for="toporControl"></label>
+            </div>
+
+            <!-- Двор -->
+            <input type="radio" name="scene" id="scene2">
+            <div class="scene scene2">
+                <!-- Вернуться в сарай -->
+                <label for="scene1"></label>
+                <!-- Сугроб -->
+                <label for="snowControl"></label>
+                <!-- Голова снеговика -->
+                <div class="snowball"></div>
+                <!-- Руки снеговика -->
+                <div class="hands"></div>
+                <!-- Ветка -->
+                <div class="branch">
+                    <label for="handsControl"></label>
                 </div>
             </div>
-            <!-- Ковер -->
-            <label class="kovr" for="kovrControl"></label>
-            <!-- Ключ -->
-            <label for="keyControl" class="key">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
-                </svg>
-            </label>
-            <!-- Лопата -->
-            <label for="lopataControl"></label>
-        </div>
-
-        <!-- Двор -->
-        <input type="radio" name="scene" id="scene2">
-        <div class="scene scene2">
-            <!-- Вернуться в сарай -->
-            <label for="scene1"></label>
-            <!-- Сугроб -->
-            <label for="snowControl"></label>
-            <!-- Сугроб -->
-            <div class="snowball"></div>
-        </div>
-
+        </fieldset>
         <!-- Финал -->
-        <input type="radio" name="scene" id="scene3">
-        <div class="scene">
-
+        <div class="scene final">
+            Победа
         </div>
     </main>
 
