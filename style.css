@@ -1,3 +1,6 @@
+body{
+    font-family: Arial;
+}
 body:before{
     content: none;
 }
@@ -44,6 +47,44 @@ main .scene1 [for="scene2"]{
     transform: translate(668px, 180px);
     width: 200px;
     height: 240px;
+}
+main .scene1 [for="scene2"]:before{
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: transform .5s ease-out, opacity .5s linear;
+}
+main .scene1 [for="scene2"]:hover:before{
+    transform: translate(calc(-100% - 30px), -50%);
+    opacity: .9;
+}
+main .scene1 [for="scene2"]:after{
+    content: '';
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z'/%3E%3C/svg%3E%0A") repeat-x;
+    position: absolute;
+    background-size: 100%;
+    top: 50%;
+    left: 0;
+    height: 28px;
+    width: 28px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: transform .3s ease-out, opacity .3s ease-out;
+    will-change: transform, opacity;
+}
+main .scene1 [for="scene2"]:hover:after{
+    animation: arrow 1s linear infinite;
+    transform: translate(-100%, -50%);
+    opacity: .9;
+}
+@keyframes arrow {
+    to{ background-position: 28px; }
 }
 /* Ящик */
 .box {
