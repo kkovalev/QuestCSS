@@ -87,73 +87,95 @@ main .scene1 [for="scene2"]:hover:after{
     to{ background-position: 28px; }
 }
 /* Ящик */
-.box {
-    margin: auto;
-    position: relative;
-    height: 222px;
-    width: 100px;
-    transform-style: preserve-3d;
-    transform: rotateX(-8deg)rotateY(50deg)translate(-822px, 278px);
-    transform-origin: 50% 50%;
-}
-.box > div {
+.box{
     position: absolute;
-    box-sizing: border-box;
-    padding: 10px;
+    bottom: 200px;
+    left: 66px;
+}
+.scene{
+    perspective: 500px;
+}
+.box {
+    width: 100px;
+    margin: 5em auto 0;
+    transform-style: preserve-3d;
+    transform: rotatex(0deg) rotateY(70deg) rotateZ(360deg);
+}
+.side {
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    background: url(img/wood.jpg);
+    border: 1px solid #663407;
+}
+.back {
+    transform: translateZ(-5em) translateY(-3em);
+    height: 13em;
+}
+.left {
+    transform: translateX(-5em) rotateY(90deg) translateY(-3em);
+    height: 13em;
+}
+.right {
+    transform: translateX(5em) rotateY(90deg) translateY(-3em);
+    height: 13em;
+}
+.top {
+    transform: translateY(-8em) rotateX(90deg);
+}
+.bottom {
+    transform: translateY(5em) rotateX(90deg);
+}
+.front {
+    transform: translateZ(5em) translateY(-3em);
+    height: 13em;
+    background: none;
+    display: flex;
+}
+.front:before,
+.front:after{
+    content: '';
+    background: url(img/wood.jpg);
+    width: 50%;
     height: 100%;
-    width: 100%;
-    opacity: 0.9;
-    border: solid 1px #eeeeee;
-    background: black
-}
-.box .left {
-    transform: rotateY(270deg) translateX(-100px);
-    transform-origin: center left;
-}
-.box .top {
-    transform: rotateX(-270deg) translateY(-100px);
-    transform-origin: top center;
-    width: 200px;
-    height: 100px;
-}
-.box .front{
+    border: 1px solid #663407;
     transition: transform 1s 1s ease-out;
     will-change: transform;
-}
-.box .front1 {
-    width: 100px;
-    transform: translateZ(0);
     transform-origin: 0;
 }
-#openControl:checked ~ .scene .box .front1{
-    transform: translateZ(0) rotateY(180deg);
-}
-.box .front2 {
-    width: 100px;
-    transform: translateZ(0)translateX(100px);
+.front:after{
     transform-origin: 100%;
 }
-#openControl:checked ~ .scene .box .front2{
-    width: 100px;
-    transform: translateZ(0)translateX(100px)rotateY(-180deg);
+#openControl:checked ~ .scene .box .front:before{
+    transform: rotateY(-180deg);
+}
+#openControl:checked ~ .scene .box .front:after{
+    transform: rotateY(180deg);
+}
+#openControl:checked ~ .scene .box .front{
+    pointer-events: none;
 }
 /* Замок */
 .box .lock {
     width: 34px;
-    transform: translate(82px, 100px)translateZ(1px);
+    transform: translate(-50%, -50%)translateZ(1px);
     height: 50px;
     border: 0;
     padding: 0;
     margin: 0;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     background: url(img/lock.png);
     background-size: 100%;
     opacity: 1;
-    transition: opacity 1s ease-out, z-index 0s 1s linear;
-    will-change: opacity, z-index;
+    transition: opacity 1s ease-out;
+    will-change: opacity;
+    z-index: 2;
 }
 #openControl:checked ~ .scene .box .lock{
     opacity: 0;
+    pointer-events: none;
 }
 .lock [for="openControl"]{
     display: none;
@@ -218,11 +240,6 @@ main .scene1 [for="scene2"]:hover:after{
     z-index: 2;
 }
 
-
-
-
-
-
 /* Двор */
 main .scene2{
     background: url(img/dvor.jpg) no-repeat bottom;
@@ -266,8 +283,7 @@ main .scene2 [for="scene1"]{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
-    transform: translate(100px, 390px) rotate(20deg);
+    transform: translate(30px, 0px) rotate(20deg);
     transition: transform 1s ease-out;
     will-change: transform;
     background: url(img/topor.png);
