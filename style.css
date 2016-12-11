@@ -1,0 +1,45 @@
+body:before{
+    content: none;
+}
+main{
+    display: block;
+    position: relative;
+    width: 1280px;
+    height: 600px;
+    user-select: none;
+}
+input{
+    display: none;
+}
+main label{
+    cursor: pointer;
+}
+main .scene{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity .3s linear;
+    will-change: opacity;
+}
+main [name=scene]:not(:checked) + .scene{
+    opacity: 0;
+    z-index: -1;
+}
+
+/* Сарай */
+main .scene1{
+    background: url(img/saray.jpg) no-repeat bottom;
+    background-size: 100%;
+}
+main .scene1 [for="scene2"]{
+    position: absolute;
+    transform: translate(668px, 180px);
+    width: 200px;
+    height: 240px;
+}
+
+/* Двор */
+main .scene2{
+    background: url(img/dvor.jpg) no-repeat bottom;
+    background-size: 100%;
+}
