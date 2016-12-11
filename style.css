@@ -304,9 +304,8 @@ main .scene2 [for="scene1"]{
     height: 140px;
 }
 #toporControl:checked ~ .scene [for="toporControl"]{
-    transform: translate(30px, 270px) rotate(-60deg) scaleX(-2) scaleY(2);
-    position: fixed;
-    z-index: 2;
+    transform: translate(-130px, 34px) scale(1) translateZ(250px) rotateY(0) rotateX(30deg) rotateZ(50deg);
+    z-index: 9;
 }
 /* Ветка */
 .branch{
